@@ -1,0 +1,19 @@
+{
+    "recipes": [
+        {
+            "name": "Recipe 01",
+            "ingredients": ["ingredient01","ingredient02","ingredient03"],
+            "lvl": 1
+        },
+        {
+            "name": "Recipe 02",
+            "ingredients": ["ingredient01","ingredient02","ingredient03"],
+            "lvl": 2
+        },
+        {
+            "name": "Recipe 03",
+            "ingredients": ["ingredient01","ingredient02","ingredient03"],
+            "lvl": 3
+        }
+    ]
+}
