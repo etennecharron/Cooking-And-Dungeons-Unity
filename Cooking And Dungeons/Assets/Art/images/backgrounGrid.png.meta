@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3ff5298b3b929d0478b5aa6e33c94ee6
+guid: faa24d30e473e9948b8db5c71d6f581e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6173826849711529712
-    second: cookingUI 1_0
+      213: -2723705875881738249
+    second: backgrounGrid_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cookingUI 1_0
+      name: backgrounGrid_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1947
-        height: 1312
+        width: 797
+        height: 1001
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0fe13d93fc6dda550800000000000000
-      internalID: 6173826849711529712
+      spriteID: 7ffbc6bcfe3733ad0800000000000000
+      internalID: -2723705875881738249
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      cookingUI 1_0: 6173826849711529712
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

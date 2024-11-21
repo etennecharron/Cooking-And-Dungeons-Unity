@@ -1,16 +1,22 @@
 using JetBrains.Annotations;
+using Microsoft.Unity.VisualStudio.Editor;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class inventory : MonoBehaviour
 {
 
+    public GameObject grid;
+    public GameObject tilesPrefab;
+    public List<GameObject> tilesArr;
 
     // Inventory template
     [System.Serializable]
@@ -20,13 +26,10 @@ public class inventory : MonoBehaviour
         public string description;
         public int nb;
     }
-    private int maxInventorySize = 80;
+    public int maxInventorySize;
 
     public List<Item> inventoryPlayer = new();
-    public GameObject inventoryPrefab;
-    public GameObject inventoryContainer;
-    public GameObject inventoryStart;
-    public List<GameObject> inventorySquaresArr;
+
     // Adds item to inventory when collided with
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -59,62 +62,34 @@ public class inventory : MonoBehaviour
         }
     }
 
-
-    public void createInventory()
+    public void inventoryCreator(int max, GameObject gridTemplate, GameObject tileTemplate, List<GameObject> arr)
     {
-        int nbSquareX = 8;
-        int size = (int)inventoryStart.GetComponent<Collider2D>().bounds.size.x;
-        int gap = 12;
-        int positionX = 0;
-        int positionY = 0;
-        int startX = (int)inventoryStart.transform.position.x;
-        int startY = (int)inventoryStart.transform.position.y;
-        int startZ = (int)inventoryStart.transform.position.y;
-        for (int i = 0; i < maxInventorySize; i++)
+
+        int indexMax = max;
+       for(int i = 0; i < indexMax; i++)
         {
-           
-            if (positionX != nbSquareX)
+                Instantiate(tileTemplate, new Vector3(0,0,0) ,Quaternion.identity).transform.SetParent(gridTemplate.transform);
+            if(i == indexMax - 1)
             {
-               if(positionX == 0 && positionY != 0)
+                for (int x = 0;x < indexMax; x++)
                 {
-                    positionX++;
+                    arr.Add(grid.transform.GetChild(x).gameObject);
                 }
-                
-              Instantiate(inventoryPrefab, new Vector3(startX + size * positionX + gap * positionX, startY - size *positionY - gap * positionY, startZ), Quaternion.identity).transform.SetParent(inventoryContainer.transform);
-               
-                positionX++;
             }
-            else
-            {
-                positionY++;
-                positionX = 0;
-                Instantiate(inventoryPrefab, new Vector3(startX, startY - size * positionY - gap * positionY, startZ), Quaternion.identity).transform.SetParent(inventoryContainer.transform);
-                
-
-            }
-            if (i == maxInventorySize-1)
-            {
-                Destroy(inventoryStart.gameObject);
-                for(int x = 0; x < maxInventorySize;x++)
-                inventorySquaresArr.Add(inventoryContainer.transform.GetChild(x).gameObject);
-            }
-            
-            }
+        }
+       
     }
-
-
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        createInventory();
+        //createInventory();
+        inventoryCreator(maxInventorySize, grid, tilesPrefab, tilesArr);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
  
 }
