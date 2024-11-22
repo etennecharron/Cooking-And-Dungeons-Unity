@@ -7,8 +7,11 @@ using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.VisualScripting;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class inventory : MonoBehaviour
@@ -17,14 +20,16 @@ public class inventory : MonoBehaviour
     public GameObject grid;
     public GameObject tilesPrefab;
     public List<GameObject> tilesArr;
-
+    
     // Inventory template
     [System.Serializable]
     public class Item
     {
         public string name;
         public string description;
+        public Sprite img;
         public int nb;
+        public int positionTiles;
     }
     public int maxInventorySize;
 
@@ -46,15 +51,33 @@ public class inventory : MonoBehaviour
                 else
                 {
                     item.nb++;
+                    tilesArr[item.positionTiles].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = item.nb.ToString();
                 }
             }
             if(index == inventoryPlayer.Count)
             {
                 Item newItem = new Item();
+                // STORE ITEM'S INFORMATIONS
                 newItem.name = nameOfCollision;
                 newItem.description = other.GetComponent<itemIdentity>().description;
+                newItem.img = other.GetComponent<SpriteRenderer>().sprite;
                 newItem.nb = 1;
                 inventoryPlayer.Add(newItem);
+
+                bool itemStored = false;
+                for(int i = 0; i < tilesArr.Count; i++)
+                {
+                       Sprite itemImage = tilesArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite;
+                    if ( itemImage == null && itemStored == false)
+                    {
+                        itemImage = newItem.img;
+                        newItem.positionTiles = i;
+                        tilesArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite = newItem.img;
+                        tilesArr[i].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text =  newItem.nb.ToString();
+                        itemStored = true;
+                    }
+                    
+                }
             }
             
             Destroy(other.gameObject);
