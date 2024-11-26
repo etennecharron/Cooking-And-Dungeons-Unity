@@ -11,16 +11,25 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class inventory : MonoBehaviour
 {
 
-    public GameObject grid;
-    public GameObject tilesPrefab;
-    public List<GameObject> tilesArr;
     
+    public GameObject tilesPrefab;
+
+    public GameObject gridInventory;
+    public List<GameObject> tilesInventoryArr;
+
+    public GameObject gridCooking;
+    public List<GameObject> tilesCookingArr;
+    public int maxCookingTiles;
+
+    public UnityEngine.UI.Button cookingBtn;
+
     // Inventory template
     [System.Serializable]
     public class Item
@@ -51,7 +60,7 @@ public class inventory : MonoBehaviour
                 else
                 {
                     item.nb++;
-                    tilesArr[item.positionTiles].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = item.nb.ToString();
+                    tilesInventoryArr[item.positionTiles].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = item.nb.ToString();
                 }
             }
             if(index == inventoryPlayer.Count)
@@ -65,15 +74,15 @@ public class inventory : MonoBehaviour
                 inventoryPlayer.Add(newItem);
 
                 bool itemStored = false;
-                for(int i = 0; i < tilesArr.Count; i++)
+                for(int i = 0; i < tilesInventoryArr.Count; i++)
                 {
-                       Sprite itemImage = tilesArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite;
+                       Sprite itemImage = tilesInventoryArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite;
                     if ( itemImage == null && itemStored == false)
                     {
                         itemImage = newItem.img;
                         newItem.positionTiles = i;
-                        tilesArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite = newItem.img;
-                        tilesArr[i].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text =  newItem.nb.ToString();
+                        tilesInventoryArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite = newItem.img;
+                        tilesInventoryArr[i].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text =  newItem.nb.ToString();
                         itemStored = true;
                     }
                     
@@ -85,7 +94,7 @@ public class inventory : MonoBehaviour
         }
     }
 
-    public void inventoryCreator(int max, GameObject gridTemplate, GameObject tileTemplate, List<GameObject> arr)
+    public void gridCreator(int max, GameObject gridTemplate, GameObject tileTemplate, List<GameObject> arr)
     {
 
         int indexMax = max;
@@ -96,7 +105,7 @@ public class inventory : MonoBehaviour
             {
                 for (int x = 0;x < indexMax; x++)
                 {
-                    arr.Add(grid.transform.GetChild(x).gameObject);
+                    arr.Add(gridTemplate.transform.GetChild(x).gameObject);
                 }
             }
         }
@@ -106,10 +115,16 @@ public class inventory : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //createInventory();
-        inventoryCreator(maxInventorySize, grid, tilesPrefab, tilesArr);
-    }
+       gridCreator(maxInventorySize, gridInventory, tilesPrefab, tilesInventoryArr);
+       gridCreator(maxCookingTiles,gridCooking, tilesPrefab, tilesCookingArr);
 
+        UnityEngine.UI.Button btn = cookingBtn.GetComponent<UnityEngine.UI.Button>();
+        btn.onClick.AddListener(cookClick);
+    }
+    void cookClick()
+    {
+
+    }
     // Update is called once per frame
     void Update()
     {
