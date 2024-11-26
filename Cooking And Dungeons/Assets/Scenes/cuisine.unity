@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 376137434}
   - component: {fileID: 376137433}
   - component: {fileID: 376137435}
+  - component: {fileID: 376137436}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -663,6 +664,7 @@ MonoBehaviour:
   gridCooking: {fileID: 82989381}
   tilesCookingArr: []
   maxCookingTiles: 5
+  cookingBtn: {fileID: 0}
   maxInventorySize: 35
   inventoryPlayer: []
 --- !u!50 &376137435
@@ -692,6 +694,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &376137436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376137429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086802ff36686a742acf466438fdeb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &583637293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,7 +1317,7 @@ GameObject:
   - component: {fileID: 1769559440}
   - component: {fileID: 1769559439}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ButtonCooking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
