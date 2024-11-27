@@ -27,6 +27,7 @@ public class inventory : MonoBehaviour
     public GameObject gridCooking;
     public List<GameObject> tilesCookingArr;
     public int maxCookingTiles;
+    public cooking cookingScript; 
 
     public UnityEngine.UI.Button cookingBtn;
 
@@ -36,12 +37,13 @@ public class inventory : MonoBehaviour
     {
         public string name;
         public string description;
+        public int maxInventory;
         public Sprite img;
+
         public int nb;
         public int positionTiles;
     }
     public int maxInventorySize;
-
     public List<Item> inventoryPlayer = new();
 
     // Adds item to inventory when collided with
@@ -69,16 +71,23 @@ public class inventory : MonoBehaviour
                 // STORE ITEM'S INFORMATIONS
                 newItem.name = nameOfCollision;
                 newItem.description = other.GetComponent<itemIdentity>().description;
+                newItem.maxInventory = other.GetComponent<itemIdentity>().maxInventory;
                 newItem.img = other.GetComponent<SpriteRenderer>().sprite;
-                newItem.nb = 1;
+                newItem.nb = 1; 
                 inventoryPlayer.Add(newItem);
 
                 bool itemStored = false;
                 for(int i = 0; i < tilesInventoryArr.Count; i++)
                 {
                        Sprite itemImage = tilesInventoryArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite;
+                       itemIdentity tileScript = tilesInventoryArr[i].GetComponent<itemIdentity>();
                     if ( itemImage == null && itemStored == false)
                     {
+                        tileScript.itemName = newItem.name;
+                        tileScript.description = newItem.description;
+                        tileScript.maxInventory = newItem.maxInventory;
+                        tileScript.img = newItem.img;
+
                         itemImage = newItem.img;
                         newItem.positionTiles = i;
                         tilesInventoryArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite = newItem.img;
@@ -116,7 +125,7 @@ public class inventory : MonoBehaviour
     void Start()
     {
        gridCreator(maxInventorySize, gridInventory, tilesPrefab, tilesInventoryArr);
-       gridCreator(maxCookingTiles,gridCooking, tilesPrefab, tilesCookingArr);
+       gridCreator(maxCookingTiles,gridCooking, tilesPrefab, cookingScript.tilesArr);
 
         UnityEngine.UI.Button btn = cookingBtn.GetComponent<UnityEngine.UI.Button>();
         btn.onClick.AddListener(cookClick);

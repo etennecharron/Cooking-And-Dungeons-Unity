@@ -664,7 +664,8 @@ MonoBehaviour:
   gridCooking: {fileID: 82989381}
   tilesCookingArr: []
   maxCookingTiles: 5
-  cookingBtn: {fileID: 0}
+  cookingScript: {fileID: 1769559442}
+  cookingBtn: {fileID: 1769559439}
   maxInventorySize: 35
   inventoryPlayer: []
 --- !u!50 &376137435
@@ -706,6 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086802ff36686a742acf466438fdeb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilesArr: {fileID: 0}
 --- !u!1 &583637293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,6 +1318,7 @@ GameObject:
   - component: {fileID: 1769559441}
   - component: {fileID: 1769559440}
   - component: {fileID: 1769559439}
+  - component: {fileID: 1769559442}
   m_Layer: 5
   m_Name: ButtonCooking
   m_TagString: Untagged
@@ -1436,6 +1439,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769559437}
   m_CullTransparentMesh: 1
+--- !u!114 &1769559442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769559437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086802ff36686a742acf466438fdeb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilesArr: {fileID: 0}
 --- !u!1 &1771531021
 GameObject:
   m_ObjectHideFlags: 0
