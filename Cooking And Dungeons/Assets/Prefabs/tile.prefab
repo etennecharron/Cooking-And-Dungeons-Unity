@@ -225,9 +225,9 @@ GameObject:
   - component: {fileID: 7848342692712254242}
   - component: {fileID: 3354817507644584288}
   - component: {fileID: 2227933811893158299}
-  - component: {fileID: 6301895777053423605}
   - component: {fileID: 1911355637023173217}
   - component: {fileID: 3556364418226035050}
+  - component: {fileID: 347994462109391752}
   m_Layer: 5
   m_Name: tile
   m_TagString: Untagged
@@ -294,20 +294,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6301895777053423605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9007806913295972337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a0dbde43a4c99d4aab0ae9d9e77af03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tile: {fileID: 9007806913295972337}
-  scripItem: {fileID: 3556364418226035050}
 --- !u!114 &1911355637023173217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,3 +354,21 @@ MonoBehaviour:
   description: 
   maxInventory: 0
   img: {fileID: 0}
+--- !u!114 &347994462109391752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9007806913295972337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0dbde43a4c99d4aab0ae9d9e77af03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile: {fileID: 9007806913295972337}
+  imageItem: {fileID: 2249203302445103413}
+  nbItem: {fileID: 8054858886607993225}
+  scripItem: {fileID: 3556364418226035050}
+  gridParent: {fileID: 0}
+  cookingParent: {fileID: 0}

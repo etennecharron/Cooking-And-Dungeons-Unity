@@ -105,6 +105,8 @@ MonoBehaviour:
   itemName: item02
   description: this is the nex step to the test
   maxInventory: 10
+  nb: 1
+  img: {fileID: 0}
 --- !u!61 &2106811761595853499
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class itemIdentity : MonoBehaviour
     public string itemName;
     public string description;
     public int maxInventory;
+    public int nb;
     public Sprite img;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
  

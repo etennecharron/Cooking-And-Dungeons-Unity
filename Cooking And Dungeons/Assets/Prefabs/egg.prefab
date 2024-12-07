@@ -105,6 +105,7 @@ MonoBehaviour:
   itemName: egg
   description: this is a test
   maxInventory: 10
+  nb: 1
   img: {fileID: -4072622106568590741, guid: dcdfe323051b38a4cb00c28f9f343b2c, type: 3}
 --- !u!61 &9187506744558978330
 BoxCollider2D:

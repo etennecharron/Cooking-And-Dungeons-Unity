@@ -105,6 +105,7 @@ MonoBehaviour:
   itemName: potato
   description: this is a potato
   maxInventory: 10
+  nb: 1
   img: {fileID: -953275092127064231, guid: 26c5414e196560a49b55eda401aa495f, type: 3}
 --- !u!61 &4635062661992926410
 BoxCollider2D:
