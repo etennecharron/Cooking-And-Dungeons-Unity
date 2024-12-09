@@ -53,25 +53,27 @@ public class inventory : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // if the item have the tag "item" and the inventory is not full, it looks for a place in the inventory to add the item
-        if (other.tag == "item" && inventoryPlayer.Count < maxInventorySize)
+        if (other.tag == "item")
         {
             string nameOfCollision = other.GetComponent<itemIdentity>().itemName;
             int index = 0;
             //look for item with the same name, if there is, it +1 the quantity of it
-            foreach (Item item in inventoryPlayer)
+            foreach (GameObject item in tilesInventoryArr)
             {
-                if(item.name != nameOfCollision)
+                //if no item with the same name, increment index
+                if(item.GetComponent<itemIdentity>().itemName != nameOfCollision)
                 {
                     index++;
                 }
+                // if the item was found, increment its quantity.
                 else
                 {
-                    item.nb++;
-                    tilesInventoryArr[item.positionTiles].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = item.nb.ToString();
+                    item.GetComponent<itemIdentity>().nb++;
+                    item.transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = item.GetComponent<itemIdentity>().nb.ToString();
                 }
             }
             // if no item with the same name is found in the array, adds the item
-            if(index == inventoryPlayer.Count)
+            if(index == tilesInventoryArr.Count)
             {
                 //start creating the new item's data
                 Item newItem = new Item();

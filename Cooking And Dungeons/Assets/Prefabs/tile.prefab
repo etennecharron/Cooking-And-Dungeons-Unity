@@ -353,6 +353,7 @@ MonoBehaviour:
   itemName: 
   description: 
   maxInventory: 0
+  nb: 0
   img: {fileID: 0}
 --- !u!114 &347994462109391752
 MonoBehaviour:
@@ -369,6 +370,6 @@ MonoBehaviour:
   tile: {fileID: 9007806913295972337}
   imageItem: {fileID: 2249203302445103413}
   nbItem: {fileID: 8054858886607993225}
-  scripItem: {fileID: 3556364418226035050}
-  gridParent: {fileID: 0}
+  scriptItem: {fileID: 3556364418226035050}
   cookingParent: {fileID: 0}
+  nbOfItemsToSend: 1
