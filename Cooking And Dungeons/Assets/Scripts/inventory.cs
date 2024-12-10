@@ -93,6 +93,7 @@ public class inventory : MonoBehaviour
                        itemIdentity tileScript = tilesInventoryArr[i].GetComponent<itemIdentity>();
                     if ( itemImage == null && itemStored == false)
                     {
+
                         tileScript.itemName = newItem.name;
                         tileScript.description = newItem.description;
                         tileScript.maxInventory = newItem.maxInventory;
@@ -104,6 +105,7 @@ public class inventory : MonoBehaviour
                         tilesInventoryArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite = newItem.img;
                         tilesInventoryArr[i].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text =  newItem.nb.ToString();
                         itemStored = true;
+                        tilesInventoryArr[i].GetComponent<tileContent>().itemInTile = true;
                     }
                     
                 }
