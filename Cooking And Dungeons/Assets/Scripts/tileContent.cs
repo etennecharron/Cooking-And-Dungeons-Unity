@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +13,12 @@ public class tileContent : MonoBehaviour
     public Image imageItem;
     public TextMeshProUGUI nbItem;
     public itemIdentity scriptItem;
+
     public GameObject cookingParent;
     public List<GameObject> cookingArr;
+    public GameObject inventoryParent;
+    public List<GameObject> inventoryArr;
+    
     public int nbOfItemsToSend = 1;
     public bool itemInTile;
     void Start()
@@ -23,12 +28,27 @@ public class tileContent : MonoBehaviour
 
         cookingParent = GameObject.Find("ButtonCooking");
         cookingArr = cookingParent.GetComponent<cooking>().tilesArr;
+
+        inventoryParent = GameObject.Find("player");
+        inventoryArr = inventoryParent.GetComponent<inventory>().tilesInventoryArr;
+       
     }
     void onClick()
     {
-
-        moveItem(cookingArr);
-
+        switch (tile.transform.parent.name){
+            case "gridInventory":
+                moveItem(cookingArr);
+                break;
+            case "gridCooking":
+                moveItem(inventoryArr);
+                break;
+            default:
+                Debug.Log("not working");
+                Debug.Log(tile.transform.parent.name);
+                break;
+        }
+        
+      
     }
     // Update is called once per frame
     void Update()
@@ -42,65 +62,65 @@ public class tileContent : MonoBehaviour
     {
         if (itemInTile == true)
         {
-            List<GameObject> tilesArr = arrDestination; //cookingParent.GetComponent<cooking>().tilesArr; 
-            bool emptyFound = false; // good 
-            bool itemStored = false; // good
-            for (int i = 0; i < tilesArr.Count ; i++) // good
+            List<GameObject> tilesArr = arrDestination;
+            bool emptyFound = false;
+            bool itemStored = false; 
+            for (int i = 0; i < tilesArr.Count ; i++) 
             {
-                if (tilesArr[i].GetComponent<itemIdentity>().itemName == tile.GetComponent<itemIdentity>().itemName && itemStored == false)//good
+                if (tilesArr[i].GetComponent<itemIdentity>().itemName == tile.GetComponent<itemIdentity>().itemName && itemStored == false)
                 {
                     //removes a quantity of item from the inventory
-                    scriptItem.nb = scriptItem.nb - nbOfItemsToSend; //good
-                    tile.transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = scriptItem.nb.ToString();//good
+                    scriptItem.nb = scriptItem.nb - nbOfItemsToSend; 
+                    tile.transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = scriptItem.nb.ToString();
                     //adds a quantity of item to the cooking
-                    tilesArr[i].GetComponent<itemIdentity>().nb++; //good
-                    tilesArr[i].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = tilesArr[i].GetComponent<itemIdentity>().nb.ToString(); // good
+                    tilesArr[i].GetComponent<itemIdentity>().nb++; 
+                    tilesArr[i].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = tilesArr[i].GetComponent<itemIdentity>().nb.ToString(); 
 
-                    if (scriptItem.nb <= 0)// good
+                    if (scriptItem.nb <= 0)
                     {
-                        imageItem.GetComponent<UnityEngine.UI.Image>().sprite = null;//good
-                        nbItem.text = "";//good
-                        scriptItem.itemName = null;//good
-                        scriptItem.description = null;//good
-                        scriptItem.maxInventory = 0;//good
-                        scriptItem.img = null;//good
+                        imageItem.GetComponent<UnityEngine.UI.Image>().sprite = null;
+                        nbItem.text = "";
+                        scriptItem.itemName = null;
+                        scriptItem.description = null;
+                        scriptItem.maxInventory = 0;
+                        scriptItem.img = null;
                         itemInTile = false;
                     }
-                    itemStored = true;//good
+                    itemStored = true;
                 }
-                else if (tilesArr[i].GetComponent<itemIdentity>().itemName == "" && emptyFound == false && itemStored == false)//good
+                else if (emptyFound == false && itemStored == false && tilesArr[i].GetComponent<tileContent>().itemInTile == false)//good
                 {
                     // new item in cooking tilesArr
-                    emptyFound = true;//good
+                    emptyFound = true;
                     // tile in cooking receiving the item's data
-                    itemIdentity itemInNewTile = tilesArr[i].GetComponent<itemIdentity>(); //good
-                    itemInNewTile.itemName = scriptItem.itemName; //good
-                    itemInNewTile.description = scriptItem.description; //good
-                    itemInNewTile.maxInventory = scriptItem.maxInventory; //good
-                    itemInNewTile.img = scriptItem.img;//good
+                    itemIdentity itemInNewTile = tilesArr[i].GetComponent<itemIdentity>();
+                    itemInNewTile.itemName = scriptItem.itemName; 
+                    itemInNewTile.description = scriptItem.description; 
+                    itemInNewTile.maxInventory = scriptItem.maxInventory; 
+                    itemInNewTile.img = scriptItem.img;
 
                     //quantity to send
-                    itemInNewTile.nb = nbOfItemsToSend; //good
-                    scriptItem.nb = scriptItem.nb - nbOfItemsToSend; //good
-                    tile.transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = scriptItem.nb.ToString(); //good
+                    itemInNewTile.nb = nbOfItemsToSend; 
+                    scriptItem.nb = scriptItem.nb - nbOfItemsToSend; 
+                    tile.transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = scriptItem.nb.ToString(); 
 
-                    tilesArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite = itemInNewTile.img; //good
-                    tilesArr[i].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = itemInNewTile.nb.ToString(); //good
+                    tilesArr[i].transform.GetChild(0).gameObject.transform.GetComponent<UnityEngine.UI.Image>().sprite = itemInNewTile.img; 
+                    tilesArr[i].transform.GetChild(1).gameObject.transform.GetComponent<TextMeshProUGUI>().text = itemInNewTile.nb.ToString(); 
 
                     tilesArr[i].GetComponent<tileContent>().itemInTile = true;
                     //remove info on the last item
-                    if (scriptItem.nb <= 0) //good
+                    if (scriptItem.nb <= 0) 
                     {
-                        imageItem.GetComponent<UnityEngine.UI.Image>().sprite = null; //good
-                        nbItem.text = ""; //good
-                        scriptItem.itemName = null; //good
-                        scriptItem.description = null; //good
-                        scriptItem.maxInventory = 0; //good
-                        scriptItem.img = null; //good
+                        imageItem.GetComponent<UnityEngine.UI.Image>().sprite = null;
+                        nbItem.text = ""; 
+                        scriptItem.itemName = null; 
+                        scriptItem.description = null; 
+                        scriptItem.maxInventory = 0; 
+                        scriptItem.img = null; 
                         itemInTile = false;
                     }
 
-                    itemStored = true; //good
+                    itemStored = true; 
                 }
             }
         }
