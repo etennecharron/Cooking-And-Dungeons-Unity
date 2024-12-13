@@ -507,7 +507,6 @@ GameObject:
   - component: {fileID: 376137430}
   - component: {fileID: 376137434}
   - component: {fileID: 376137435}
-  - component: {fileID: 376137436}
   - component: {fileID: 376137437}
   m_Layer: 0
   m_Name: player
@@ -649,19 +648,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &376137436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376137429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086802ff36686a742acf466438fdeb04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilesArr: []
 --- !u!61 &376137437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1389,10 +1375,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 116979345}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1769559442}
+        m_TargetAssemblyTypeName: cooking, Assembly-CSharp
+        m_MethodName: cook
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1452,6 +1438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilesArr: []
+  recipeReaderScript: {fileID: 1926079401}
 --- !u!1 &1771531021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,9 +1568,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49b38f43cf5a3040a02707ad302ea50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipesJSON: {fileID: 4900000, guid: 94dbe43cfba41bb498609e2b8774c449, type: 3}
-  myRecipeList:
-    recipes: []
+  RecipeList:
+  - name: hamburger
+    ingredients:
+    - egg
+    - potato
+    - carrot
+    lvl: 1
+  - name: egg & fries
+    ingredients:
+    - egg
+    - potato
+    lvl: 1
+  - name: fries & fried carrot
+    ingredients:
+    - ptato
+    - carrot
+    lvl: 1
 --- !u!4 &1926079402
 Transform:
   m_ObjectHideFlags: 0
