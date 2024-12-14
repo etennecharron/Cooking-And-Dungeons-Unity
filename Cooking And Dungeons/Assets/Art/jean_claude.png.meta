@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0438821d8e62e84b8b04cb1f08980d6
+guid: 8df156462d4aa764c8c26cc28cdce822
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -330017044477269398
-    second: ptit_bonhome_0
+      213: 6741973729874972799
+    second: jean_claude_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ptit_bonhome_0
+      name: jean_claude_0
       rect:
         serializedVersion: 2
-        x: 49
+        x: 69
         y: 0
-        width: 222
+        width: 182
         height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6aab1e1f3b8b6bf0800000000000000
-      internalID: -330017044477269398
+      spriteID: f709636036d409d50800000000000000
+      internalID: 6741973729874972799
       vertices: []
       indices: 
       edges: []
