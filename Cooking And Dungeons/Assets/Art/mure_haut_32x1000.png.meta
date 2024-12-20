@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0438821d8e62e84b8b04cb1f08980d6
+guid: 1e22223a7794a4243b52d6a20e4612a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -330017044477269398
-    second: ptit_bonhome_0
+      213: -1580576776900498168
+    second: mure_haut_32x1000_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 320
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ptit_bonhome_0
+      name: mure_haut_32x1000_0
       rect:
         serializedVersion: 2
-        x: 49
+        x: 0
         y: 0
-        width: 222
-        height: 320
+        width: 320
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6aab1e1f3b8b6bf0800000000000000
-      internalID: -330017044477269398
+      spriteID: 80d2d90bbc9a01ae0800000000000000
+      internalID: -1580576776900498168
       vertices: []
       indices: 
       edges: []
@@ -126,7 +126,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ptit_bonhome_0: -330017044477269398
+      mure_haut_32x1000_0: -1580576776900498168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

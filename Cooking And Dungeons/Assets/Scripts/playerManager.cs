@@ -8,7 +8,9 @@ public class playerManager : MonoBehaviour
 
     public string playerName = "Bob";
     public int cookingLvl = 1;
-
+    public int hp;
+    public int hpMax;
+    public int dmg;
 
     void Start()
     {

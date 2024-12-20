@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0438821d8e62e84b8b04cb1f08980d6
+guid: 3b2969e66f77de64e9ca7184bd53c7dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -330017044477269398
-    second: ptit_bonhome_0
+      213: 368543389579951487
+    second: slime_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 320
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ptit_bonhome_0
+      name: slime_0
       rect:
         serializedVersion: 2
-        x: 49
-        y: 0
-        width: 222
-        height: 320
+        x: 29
+        y: 19
+        width: 282
+        height: 272
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6aab1e1f3b8b6bf0800000000000000
-      internalID: -330017044477269398
+      spriteID: f7d3b3c92445d1500800000000000000
+      internalID: 368543389579951487
       vertices: []
       indices: 
       edges: []
@@ -126,7 +126,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ptit_bonhome_0: -330017044477269398
+      slime_0: 368543389579951487
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

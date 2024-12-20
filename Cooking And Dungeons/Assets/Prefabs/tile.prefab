@@ -284,9 +284,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7399533318584292489, guid: 504ae1ae040de6546ba0e9ec80296ae5, type: 3}
+  m_Sprite: {fileID: 7399533318584292489, guid: 2d9e169e0df78a841a66caa8f8a5cf5a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -372,4 +372,8 @@ MonoBehaviour:
   nbItem: {fileID: 8054858886607993225}
   scriptItem: {fileID: 3556364418226035050}
   cookingParent: {fileID: 0}
+  cookingArr: []
+  inventoryParent: {fileID: 0}
+  inventoryArr: []
   nbOfItemsToSend: 1
+  itemInTile: 0
